@@ -8,11 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#10b981', // Green (trust)
-        secondary: '#f97316', // Orange (energy)
-        accent: '#1e3a8a', // Dark Blue (professional)
+        primary: '#16a34a',      // main green
+        primaryDark: '#15803d',  // hover green
+        secondary: '#f97316',    // orange CTA
+        accent: '#1e3a8a',       // dark blue
+        background: '#ffffff',   // white
+        dark: '#0f172a',         // dark text/bg
       },
     },
   },
   plugins: [],
-}
+};
