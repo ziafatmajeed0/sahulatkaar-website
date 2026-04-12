@@ -1,49 +1,34 @@
-'use client';
-
 import Link from 'next/link';
+import { buildWhatsAppUrl } from '@/data/site';
 
 export default function NotFound() {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5 px-4">
-      <div className="text-center">
-        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-4">404</h1>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Kuch Galat Ho Gaya!
-        </h2>
-        <p className="text-lg text-gray-600 mb-8 max-w-md">
-          Ye page nahi milaya. Shayad aap galat link ke through aaye ho! 🤔
+    <div className="container-custom flex min-h-[60vh] items-center justify-center py-16">
+      <div className="section-shell max-w-2xl px-8 py-14 text-center">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">404</p>
+        <h1 className="mt-4 text-4xl font-bold text-slate-900 md:text-5xl">This page could not be found</h1>
+        <p className="mt-4 text-base leading-7 text-slate-600">
+          The link may be outdated, or the page may have moved. You can head back to the homepage or send us a message directly.
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
           <Link
             href="/"
-            className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition transform hover:scale-105"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primaryDark"
           >
-            🏠 Home Page Jain
+            Go to home
           </Link>
           <a
-            href="https://wa.me/923261440088?text=Assalam%20u%20Alaikum%20-%20I%20need%20help"
+            href={buildWhatsAppUrl('Assalam o Alaikum, I reached a missing page and need help.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-secondary text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-600 transition transform hover:scale-105"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-primary hover:text-primary"
           >
-            💬 WhatsApp Karain
+            Message on WhatsApp
           </a>
-        </div>
-
-        <div className="mt-12 text-gray-600">
-          <p>Ya kisi aur page ko explore karain:</p>
-          <div className="mt-4 space-x-2 text-sm">
-            <Link href="/services" className="text-primary hover:underline">Services</Link>
-            <span>•</span>
-            <Link href="/how-it-works" className="text-primary hover:underline">How It Works</Link>
-            <span>•</span>
-            <Link href="/cities" className="text-primary hover:underline">Cities</Link>
-            <span>•</span>
-            <Link href="/about" className="text-primary hover:underline">About</Link>
-          </div>
         </div>
       </div>
     </div>
   );
 }
+

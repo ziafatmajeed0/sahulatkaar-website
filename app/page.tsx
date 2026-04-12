@@ -1,212 +1,165 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
-import { CheckCircle, Users, Zap, Shield, MessageCircle, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle2, Clock3, MessageCircle, ShieldCheck, Users } from 'lucide-react';
+import { buildWhatsAppUrl, homePainPoints, homeServices, homeSteps, siteConfig } from '@/data/site';
+import { createPageMetadata } from '@/lib/metadata';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Remote task support across Pakistan',
+  description:
+    'Coordinate errands, document follow-ups, shopping, and family support tasks in Pakistan through a simple WhatsApp-first workflow.',
+  path: '/',
+});
 
 export default function Home() {
-  const testimonials = [
-    {
-      name: "Ahmed Ali",
-      city: "Dubai",
-      text: "Mera property document handle karna tha. SahulatKaar nay 2 din mein sab kuch complete kar diya!",
-      rating: 5
-    },
-    {
-      name: "Fatima Khan",
-      city: "USA",
-      text: "Amma ke liye medicine door karna tha. Bilkul trustworthy service hai!",
-      rating: 5
-    },
-    {
-      name: "Hassan Raza",
-      city: "Saudi Arabia",
-      text: "Business documents ke liye itni mushkil tha. Ab problem nahi hai!",
-      rating: 5
-    }
-  ];
-
-  const painPoints = [
-    {
-      icon: <Users className="w-12 h-12 text-secondary" />,
-      title: "Koi Trusted Banda Nahi",
-      description: "Kaise samjhein kahan apna kaam theek ho raha hai?"
-    },
-    {
-      icon: <Zap className="w-12 h-12 text-secondary" />,
-      title: "Time Nahi Hota",
-      description: "Office mein busy, documents tak nahi pahunch sakte"
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-secondary" />,
-      title: "Delay & Risk",
-      description: "Government offices mein delay aur uncertainty"
-    },
-    {
-      icon: <MessageCircle className="w-12 h-12 text-secondary" />,
-      title: "No Updates",
-      description: "Kaam ka status clear nahi hota"
-    }
-  ];
-
-  const steps = [
-    { num: "1", title: "Message Karain", description: "WhatsApp pe apna kaam batain" },
-    { num: "2", title: "Hum Sambhalte Hain", description: "Hum task handle karte hain" },
-    { num: "3", title: "Relax Karain", description: "Kaam complete, updates milte rahe" }
-  ];
-
-  const services = [
-    { icon: "📄", title: "Document Handling", description: "NADRA, property, tax work" },
-    { icon: "🛒", title: "Shopping", description: "Market errands & delivery" },
-    { icon: "💊", title: "Medicine", description: "Medicine pickup & delivery" },
-    { icon: "⚙️", title: "Custom Tasks", description: "Har type ka kaam" }
-  ];
-
   return (
-    <div>
-
-      {/* HERO SECTION */}
-      <section className="bg-white pb-12">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-            {/* LEFT */}
-            <div className="space-y-6">
-
-              <div className="inline-flex bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-medium">
-                You Rest. We Run.
-              </div>
-
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Pakistan mein kaam atka hua hai? <br />
-                <span className="text-primary">
-                  Ab aap ko travel karne ki zarurat nahi.
-                </span>
+    <div className="space-y-6 pb-8 pt-6 md:pt-10">
+      <section className="section-shell overflow-hidden">
+        <div className="container-custom grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="space-y-6">
+            <span className="inline-flex items-center rounded-full bg-green-100 px-4 py-1 text-sm font-semibold text-green-800">
+              {siteConfig.tagline}
+            </span>
+            <div className="space-y-4">
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">
+                Manage tasks in Pakistan without travelling back for every follow-up.
               </h1>
-
-              <p className="text-lg text-gray-600">
-                SahulatKaar aap ke liye Pakistan mein har wo kaam karta hai
-                jin ke liye normally aap ko khud jana parta hai.
-                <br />
-                <span className="font-semibold">
-                  Time bhi save, travel bhi avoid.
-                </span>
+              <p className="max-w-2xl text-lg leading-8 text-slate-600">
+                SahulatKaar helps families, professionals, and overseas Pakistanis coordinate practical tasks through one
+                clear WhatsApp channel.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://wa.me/923261440088"
-                  target="_blank"
-                  className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg shadow-md text-lg font-semibold"
-                >
-                  <MessageCircle size={20} />
-                  Order on WhatsApp
-                </a>
-
-                <a
-                  href="#how-it-works"
-                  className="flex items-center justify-center gap-2 border border-gray-300 px-6 py-3 rounded-lg text-lg font-semibold"
-                >
-                  <ArrowRight size={18} />
-                  How it Works
-                </a>
-              </div>
-
-              <div className="flex gap-6 pt-4">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-green-500" />
-                  Trusted by overseas Pakistanis
-                </div>
-                <div className="flex items-center gap-2">
-                  <Zap className="text-yellow-500" />
-                  Fast & reliable
-                </div>
-              </div>
             </div>
 
-            {/* RIGHT IMAGE */}
-            <div className="relative hover:scale-105 transition-all duration-300">
-              <div className="absolute -z-10 top-10 right-10 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-30"></div>
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100 relative">
-                <Image
-                  src="/hero-image.png"
-                  alt="SahulatKaar"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent rounded-2xl"></div>
-              </div>
-              <div className="absolute top-4 left-4 bg-white shadow-md px-3 py-1 rounded-full text-sm z-10">
-                📍 Aap Wahan – Relax Karein
-              </div>
-              <div className="absolute bottom-4 right-4 bg-white shadow-md px-3 py-1 rounded-full text-sm z-10">
-                ✔ Hum Yahan – Kaam Karein
-              </div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a
+                href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600"
+              >
+                <MessageCircle size={18} />
+                Start on WhatsApp
+              </a>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-base font-semibold text-slate-700 transition-colors hover:border-primary hover:text-primary"
+              >
+                See how it works
+                <ArrowRight size={18} />
+              </Link>
             </div>
 
+            <div className="grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+              <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-200">
+                <CheckCircle2 className="text-green-600" size={18} />
+                Updates throughout the task
+              </div>
+              <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-200">
+                <ShieldCheck className="text-green-600" size={18} />
+                One clear point of contact
+              </div>
+              <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-4 py-3 shadow-sm ring-1 ring-slate-200">
+                <Users className="text-green-600" size={18} />
+                Support across major cities
+              </div>
+            </div>
           </div>
 
-          {/* STATS BAR */}
-          <div className="mt-12 bg-white shadow-lg rounded-2xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-
-            <div>
-              <p className="font-bold text-lg">24-48 Hours</p>
-              <p className="text-sm text-gray-500">Fast Task Completion</p>
+          <div className="relative">
+            <div className="absolute -right-10 top-8 h-48 w-48 rounded-full bg-orange-200/50 blur-3xl" aria-hidden="true" />
+            <div className="absolute -left-8 bottom-8 h-48 w-48 rounded-full bg-green-200/60 blur-3xl" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]">
+              <Image
+                src="/hero-image.png"
+                alt="A representative customer support and task coordination visual for SahulatKaar"
+                width={600}
+                height={500}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="h-auto w-full object-cover"
+              />
             </div>
-
-            <div>
-              <p className="font-bold text-lg">100% Trusted</p>
-              <p className="text-sm text-gray-500">Secure & Reliable</p>
-            </div>
-
-            <div>
-              <p className="font-bold text-lg">All Major Cities</p>
-              <p className="text-sm text-gray-500">Lahore, Karachi & more</p>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* PROBLEM */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom grid md:grid-cols-4 gap-6">
-          {painPoints.map((p, i) => (
-            <div key={i} className="bg-white p-6 rounded-lg shadow">
-              {p.icon}
-              <h3 className="font-bold mt-4">{p.title}</h3>
-              <p className="text-sm text-gray-600">{p.description}</p>
-            </div>
-          ))}
+      <section className="section-shell">
+        <div className="container-custom py-14">
+          <div className="mb-8 max-w-2xl">
+            <h2 className="section-title">Why people use SahulatKaar</h2>
+            <p className="section-subtitle">
+              The challenge is rarely the task itself. It is the distance, the coordination, and the repeated follow-up.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {homePainPoints.map((item) => (
+              <article key={item.title} className="card-panel">
+                <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* STEPS */}
-      <section id="how-it-works" className="py-20 text-center">
-        <div className="container-custom grid md:grid-cols-3 gap-8">
-          {steps.map((s, i) => (
-            <div key={i}>
-              <div className="text-2xl font-bold text-primary">{s.num}</div>
-              <h3 className="font-bold">{s.title}</h3>
-              <p>{s.description}</p>
-            </div>
-          ))}
+      <section className="section-shell">
+        <div className="container-custom py-14">
+          <div className="mb-8 max-w-2xl">
+            <h2 className="section-title">A simple process</h2>
+            <p className="section-subtitle">You send the task, we coordinate the work, and you stay informed.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {homeSteps.map((step) => (
+              <article key={step.number} className="card-panel">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Step {step.number}</p>
+                <h3 className="mt-3 text-xl font-semibold text-slate-900">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom grid md:grid-cols-4 gap-6">
-          {services.map((s, i) => (
-            <div key={i} className="bg-white p-6 rounded-lg shadow">
-              <div className="text-3xl">{s.icon}</div>
-              <h3 className="font-bold">{s.title}</h3>
-              <p>{s.description}</p>
-            </div>
-          ))}
+      <section className="section-shell">
+        <div className="container-custom py-14">
+          <div className="mb-8 max-w-2xl">
+            <h2 className="section-title">Tasks we commonly support</h2>
+            <p className="section-subtitle">
+              These are the most common categories, but the best way to confirm your case is to send the details on WhatsApp.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {homeServices.map((service) => (
+              <article key={service.title} className="card-panel">
+                <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{service.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
+      <section className="section-shell bg-slate-950 text-white">
+        <div className="container-custom grid gap-8 py-12 md:grid-cols-3">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <Clock3 className="text-green-400" size={22} />
+            <p className="mt-4 text-lg font-semibold">Faster coordination</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">No need to juggle multiple people for one task.</p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <ShieldCheck className="text-green-400" size={22} />
+            <p className="mt-4 text-lg font-semibold">Clear communication</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">One conversation thread keeps updates and details organized.</p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <MessageCircle className="text-green-400" size={22} />
+            <p className="mt-4 text-lg font-semibold">Easy first step</p>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Send the city and task summary, and we will take it from there.</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+

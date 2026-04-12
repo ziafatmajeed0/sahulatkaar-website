@@ -1,175 +1,127 @@
-'use client';
+import type { Metadata } from 'next';
+import { MessageCircle, Search, ClipboardCheck, BellRing, FileCheck2, Smile } from 'lucide-react';
+import { buildWhatsAppUrl } from '@/data/site';
+import { createPageMetadata } from '@/lib/metadata';
 
-import { CheckCircle, AlertCircle, Smartphone, MessageCircle, Clock, Shield } from 'lucide-react';
+export const metadata: Metadata = createPageMetadata({
+  title: 'How It Works',
+  description:
+    'See the simple SahulatKaar workflow from initial WhatsApp message to updates, completion, and proof sharing.',
+  path: '/how-it-works',
+});
 
-export default function HowItWorks() {
-  const steps = [
-    {
-      number: 1,
-      title: "Message Karain",
-      description: "WhatsApp pe message karain ya call karain. Batain apna kaam kya hai. Kuch bhi kar sakte hain!",
-      icon: <MessageCircle className="w-16 h-16 text-secondary" />
-    },
-    {
-      number: 2,
-      title: "Hum Samjhte Hain",
-      description: "Aapka task samajh kar sahi plan banate hain. Zaroorat padi to aur details mange, ya pehlay hi hisaab kar dete hain.",
-      icon: <AlertCircle className="w-16 h-16 text-secondary" />
-    },
-    {
-      number: 3,
-      title: "Kaam Start",
-      description: "Paise ka matter resolve karte hain (agar kuch kharch hoga to). Phir kaam shuru!",
-      icon: <Smartphone className="w-16 h-16 text-secondary" />
-    },
-    {
-      number: 4,
-      title: "Updates Milte Rahe",
-      description: "Kaam chal raha hai to regular updates. Photos/proofs bhejte hain progress ki.",
-      icon: <Clock className="w-16 h-16 text-secondary" />
-    },
-    {
-      number: 5,
-      title: "Pura Complete",
-      description: "Kaam complete hua to final report, documents, photos - sab kuch! Pyre confidence ke saath.",
-      icon: <CheckCircle className="w-16 h-16 text-primary" />
-    },
-    {
-      number: 6,
-      title: "Aaram Se Soiye",
-      description: "Aapka kaam properly complete. Ab koi stress nahi, koi worry nahi!",
-      icon: <Shield className="w-16 h-16 text-primary" />
-    }
-  ];
+const steps = [
+  {
+    title: 'Send the task details',
+    description: 'Start with the city, the task summary, any deadline, and the documents or photos that matter.',
+    icon: MessageCircle,
+  },
+  {
+    title: 'We review the scope',
+    description: 'We ask follow-up questions if needed and confirm whether the task is practical and supported.',
+    icon: Search,
+  },
+  {
+    title: 'Confirm cost and next steps',
+    description: 'You receive a clear quote or cost structure before the task moves forward.',
+    icon: ClipboardCheck,
+  },
+  {
+    title: 'Receive progress updates',
+    description: 'We keep the communication in one place so you can see what has happened and what is next.',
+    icon: BellRing,
+  },
+  {
+    title: 'Get completion proof',
+    description: 'Where relevant, we share the final status, collected documents, or proof that the task is complete.',
+    icon: FileCheck2,
+  },
+  {
+    title: 'Move on without the back-and-forth',
+    description: 'The goal is simple: less stress, fewer follow-ups, and a smoother coordination process.',
+    icon: Smile,
+  },
+] as const;
 
-  const timeline = [
-    { time: "5 min", task: "Message + Task Briefing" },
-    { time: "30 min", task: "Task Assessment + Quote" },
-    { time: "1-2 hours", task: "Payment & Work Start" },
-    { time: "Daily", task: "Progress Updates" },
-    { time: "2-7 days", task: "Completion" },
-  ];
+const timeline = [
+  { time: 'First message', task: 'Share the task details and city' },
+  { time: 'Same-day review', task: 'Receive questions, scope confirmation, and next steps' },
+  { time: 'During execution', task: 'Get updates through the same WhatsApp thread' },
+  { time: 'At completion', task: 'Receive the final update and proof where appropriate' },
+] as const;
 
+export default function HowItWorksPage() {
   return (
-    <div>
-      {/* HERO */}
-      <section className="bg-orange-50 text-gray-900 py-20">
-        <div className="container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Kaise Kaam Karte Hain SahulatKaar?
-          </h1>
-          <p className="text-xl text-gray-700">
-            Bilkul simple process - 6 easy steps mein sab kuch complete!
+    <div className="space-y-6 pb-8 pt-6 md:pt-10">
+      <section className="section-shell">
+        <div className="container-custom max-w-4xl py-14">
+          <p className="eyebrow">How It Works</p>
+          <h1 className="section-title mt-4">A clear workflow from first message to final update</h1>
+          <p className="section-subtitle max-w-3xl">
+            The process is designed to keep coordination simple, especially when you are managing the task from another city or country.
           </p>
         </div>
       </section>
 
-      {/* STEP BY STEP */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <div className="space-y-12">
-            {steps.map((step, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition">
-                <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-20 w-20 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10">
-                      {step.icon}
+      <section className="section-shell">
+        <div className="container-custom py-14">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <article key={step.title} className="card-panel">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-100 text-primary">
+                      <Icon size={22} />
                     </div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Step {index + 1}</p>
                   </div>
-                  <div className="flex-grow">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="inline-block bg-primary text-white rounded-full w-8 h-8 text-center font-bold">
-                        {step.number}
-                      </span>
-                      <h3 className="text-2xl font-bold text-gray-900">{step.title}</h3>
-                    </div>
-                    <p className="text-gray-600 text-lg">{step.description}</p>
-                  </div>
-                </div>
-              </div>
+                  <h2 className="mt-5 text-xl font-semibold text-slate-900">{step.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="container-custom py-14">
+          <div className="mb-8 max-w-2xl">
+            <h2 className="section-title">What the timeline usually feels like</h2>
+            <p className="section-subtitle">Every task is different, but the communication pattern stays consistent.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {timeline.map((item) => (
+              <article key={item.time} className="card-panel">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{item.time}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.task}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TIMELINE */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <h2 className="section-title text-center">Timing Kya Hoti Hai?</h2>
-          <p className="section-subtitle text-center">Message se completion tak</p>
-
-          <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
-              <div key={index} className="flex gap-6 mb-8 last:mb-0">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold">
-                    ⏱️
-                  </div>
-                  {index < timeline.length - 1 && (
-                    <div className="w-1 h-12 bg-primary/30 mt-2"></div>
-                  )}
-                </div>
-                <div className="pb-8">
-                  <p className="text-lg font-bold text-primary">{item.time}</p>
-                  <p className="text-gray-600">{item.task}</p>
-                </div>
-              </div>
-            ))}
+      <section className="section-shell bg-slate-950 text-white">
+        <div className="container-custom flex flex-col items-start justify-between gap-6 py-12 md:flex-row md:items-center">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-semibold">Ready to send your task?</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">
+              Share the city, the task summary, and the deadline if there is one. We will help you figure out the next step.
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* WHY US */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="section-title text-center">Humse Kyon Kaam Karwain?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">✅ Sab Kuch Handle Karte Hain</h3>
-              <p className="text-gray-600">Document handling se shopping tak، medicine se custom work - sab kuch!
-              </p>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">🌍 Overseas Friends Ke Liye Best</h3>
-              <p className="text-gray-600">Jab aap nahi ho Pakistan mein ta hum ho, aapka sab manage karte hain!</p>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">💬 Bilkul Transparent</h3>
-              <p className="text-gray-600">Daily updates, photos, proof - kuch hide nahi! Pura trust basis par kaam karte hain.</p>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">⚡ Super Fast</h3>
-              <p className="text-gray-600">48 hours mein zyadata tar kaam complete! Sirf message - hum sambhal lete hain.</p>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">🔒 100% Secure</h3>
-              <p className="text-gray-600">Aapka personal, financial - sab kuch safe! Trusted by 1000+ customers.</p>
-            </div>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <h3 className="text-xl font-bold text-primary mb-4">💰 Fair Pricing</h3>
-              <p className="text-gray-600">Kharcha jo actual lage plus minimal service fee. Koi hidden charges nahi!</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 hero-gradient text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ab Samajh Gaye? Chalo Shuru Karte Hain!
-          </h2>
           <a
-            href="https://wa.me/923261440088?text=Hi%20SahulatKaar,%20mujhe%20apna%20Pakistan%20ka%20kaam%20karwana%20hai.%20Kya%20help%20kar%20sakte%20ho?"
+            href={buildWhatsAppUrl('Assalam o Alaikum, I want to start a new task.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105"
+            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
           >
-            💬 WhatsApp Message Karain - Ab
+            Message on WhatsApp
           </a>
         </div>
       </section>
     </div>
   );
 }
+

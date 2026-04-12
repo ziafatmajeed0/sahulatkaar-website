@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">SahulatKaar icon</title>
+  <desc id="desc">Green rounded square with the letters SK</desc>
+  <rect width="128" height="128" rx="28" fill="#16a34a"/>
+  <path d="M30 44c0-12 9-20 23-20 9 0 18 3 25 9l-8 12c-5-4-10-6-16-6-5 0-8 2-8 5 0 4 5 6 12 8 14 4 24 10 24 24 0 16-13 26-31 26-12 0-22-4-29-11l9-12c6 5 12 8 20 8 7 0 11-3 11-7 0-5-5-6-14-9-13-4-18-11-18-21Z" fill="#fff"/>
+  <path d="M84 28h15v72H84zM84 62l24-34h18L99 64l28 36h-18z" fill="#fb923c"/>
+</svg>
+
