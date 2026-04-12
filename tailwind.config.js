@@ -8,12 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#16a34a',      // main green
-        primaryDark: '#15803d',  // hover green
-        secondary: '#f97316',    // orange CTA
-        accent: '#1e3a8a',       // dark blue
-        background: '#ffffff',   // white
-        dark: '#0f172a',         // dark text/bg
+        primary: '#16a34a',
+        primaryDark: '#15803d',
+        secondary: '#f97316',
+        accent: '#1e3a8a',
+        background: '#ffffff',
+        dark: '#0f172a',
+      },
+
+      // 🔥 ADD THIS (IMPORTANT)
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
     },
   },
