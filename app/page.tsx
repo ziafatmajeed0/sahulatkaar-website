@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Clock3, MessageCircle, ShieldCheck, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Clock3, MessageCircle, ShieldCheck, Smartphone, Users } from 'lucide-react';
 import { buildWhatsAppUrl, homePainPoints, homeServices, homeSteps, siteConfig } from '@/data/site';
 import { createPageMetadata } from '@/lib/metadata';
 
@@ -31,7 +31,16 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.aak.remotepresence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-semibold text-white transition-colors shadow-sm hover:bg-primaryDark"
+              >
+                <Smartphone size={18} />
+                Download App
+              </a>
               <a
                 href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
                 target="_blank"
@@ -39,7 +48,7 @@ export default function Home() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600"
               >
                 <MessageCircle size={18} />
-                Start on WhatsApp
+                WhatsApp
               </a>
               <Link
                 href="/how-it-works"

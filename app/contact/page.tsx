@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Clock3, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { Clock3, Mail, MapPin, MessageCircle, Phone, Smartphone } from 'lucide-react';
 import ContactForm from './ContactForm';
 import { buildWhatsAppUrl, faqs, siteConfig } from '@/data/site';
 import { createPageMetadata } from '@/lib/metadata';
@@ -33,6 +33,13 @@ const contactCards = [
     label: siteConfig.email,
     icon: Mail,
   },
+  {
+    title: 'Download SahulatKaar App',
+    description: 'Get our Android app from Play Store',
+    href: 'https://play.google.com/store/apps/details?id=com.aak.remotepresence',
+    label: 'Play Store',
+    icon: Smartphone,
+  },
 ] as const;
 
 export default function ContactPage() {
@@ -50,7 +57,7 @@ export default function ContactPage() {
 
       <section className="section-shell">
         <div className="container-custom py-14">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {contactCards.map((card) => {
               const Icon = card.icon;
 

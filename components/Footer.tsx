@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AtSign, Mail, MessageCircle, Phone } from 'lucide-react';
+import { AtSign, Mail, MessageCircle, Phone, Smartphone } from 'lucide-react';
 import { buildInstagramUrl, buildWhatsAppUrl, navLinks, siteConfig, trustPoints } from '@/data/site';
 
 export default function Footer() {
@@ -83,6 +83,15 @@ export default function Footer() {
               >
                 <AtSign size={16} />
                 @{siteConfig.instagramHandle}
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.aak.remotepresence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 transition-colors hover:text-white"
+              >
+                <Smartphone size={16} />
+                Download SahulatKaar App
               </a>
             </div>
           </div>

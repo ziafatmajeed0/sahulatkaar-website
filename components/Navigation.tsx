@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, Smartphone, X } from 'lucide-react';
 import { buildWhatsAppUrl, navLinks } from '@/data/site';
 
 export default function Navigation() {
@@ -41,14 +41,23 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex md:items-center md:gap-3">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.aak.remotepresence"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primaryDark"
+            >
+              <Smartphone size={16} />
+              Download App
+            </a>
             <a
               href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primaryDark"
+              className="inline-flex items-center rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
             >
-              Order on WhatsApp
+              WhatsApp
             </a>
           </div>
 
@@ -78,15 +87,27 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primaryDark"
-              onClick={() => setIsOpen(false)}
-            >
-              Order on WhatsApp
-            </a>
+            <div className="mt-2 flex flex-col gap-2">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.aak.remotepresence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primaryDark"
+                onClick={() => setIsOpen(false)}
+              >
+                <Smartphone size={16} />
+                Download App
+              </a>
+              <a
+                href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+                onClick={() => setIsOpen(false)}
+              >
+                Order on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       ) : null}
