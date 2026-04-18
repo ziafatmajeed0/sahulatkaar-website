@@ -10,23 +10,26 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur">
       <div className="container-custom">
         <div className="flex min-h-16 items-center justify-between gap-4">
           <Link
             href="/"
-            className="flex items-center"
+            className="flex items-center gap-2"
             aria-label="SahulatKaar home"
             onClick={() => setIsOpen(false)}
           >
             <Image
-              src="/Logo.jpeg"
-              alt="SahulatKaar logo"
-              width={132}
-              height={52}
-              className="h-12 w-auto"
+              src="/Logo-icon.png"
+              alt="SahulatKaar icon"
+              width={160}
+              height={100}
+              className="h-10 w-auto lg:h-12"
               priority
             />
+            <span className="text-xl font-bold tracking-tight text-white lg:text-2xl">
+              SAHULAT<span className="text-primary">KAAR</span>
+            </span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -34,7 +37,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-700 transition-colors hover:text-primary"
+                className="text-sm font-medium text-slate-300 transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -55,7 +58,7 @@ export default function Navigation() {
               href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+              className="inline-flex items-center rounded-full border border-slate-600 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-contentBase hover:text-primary"
             >
               WhatsApp
             </a>
@@ -64,7 +67,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => setIsOpen((current) => !current)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-700 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-600 text-slate-200 md:hidden"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -75,13 +78,13 @@ export default function Navigation() {
       </div>
 
       {isOpen ? (
-        <div id="mobile-navigation" className="border-t border-slate-200 bg-white md:hidden">
+        <div id="mobile-navigation" className="border-t border-white/10 bg-background md:hidden">
           <div className="container-custom flex flex-col gap-3 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-xl px-2 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+                className="rounded-xl px-2 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-contentBase hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -102,7 +105,7 @@ export default function Navigation() {
                 href={buildWhatsAppUrl('Assalam o Alaikum, I need help with a task in Pakistan.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-200 transition-colors hover:bg-contentBase hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 Order on WhatsApp

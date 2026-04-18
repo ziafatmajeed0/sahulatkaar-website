@@ -18,10 +18,10 @@ export default function Error({
   return (
     <div className="container-custom flex min-h-[60vh] items-center justify-center py-16">
       <div className="section-shell max-w-2xl px-8 py-14 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+        <h2 className="text-3xl font-bold text-white md:text-4xl">
           Something went wrong
         </h2>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="mt-4 text-base leading-7 text-slate-200">
           Please try again. If the issue continues, you can go back home or report it on WhatsApp.
         </p>
 
@@ -34,7 +34,7 @@ export default function Error({
           </button>
           <Link
             href="/"
-            className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-primary hover:text-primary"
+            className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-slate-300 transition-colors hover:border-primary hover:text-primary"
           >
             Go to home
           </Link>

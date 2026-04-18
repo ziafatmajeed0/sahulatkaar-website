@@ -45,7 +45,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
+        <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-300">
           Your name
         </label>
         <input
@@ -55,13 +55,13 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           placeholder="Ahmed Ali"
-          className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
+          className="w-full rounded-2xl border border-white/20 px-4 py-3 text-white outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
           required
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
+        <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-300">
           Email address
         </label>
         <input
@@ -71,12 +71,12 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           placeholder="ahmed@example.com"
-          className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
+          className="w-full rounded-2xl border border-white/20 px-4 py-3 text-white outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
         />
       </div>
 
       <div>
-        <label htmlFor="city" className="mb-2 block text-sm font-semibold text-slate-700">
+        <label htmlFor="city" className="mb-2 block text-sm font-semibold text-slate-300">
           Task city
         </label>
         <input
@@ -86,13 +86,13 @@ export default function ContactForm() {
           value={formData.city}
           onChange={handleChange}
           placeholder="Karachi, Lahore, Islamabad"
-          className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
+          className="w-full rounded-2xl border border-white/20 px-4 py-3 text-white outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
           required
         />
       </div>
 
       <div>
-        <label htmlFor="taskDescription" className="mb-2 block text-sm font-semibold text-slate-700">
+        <label htmlFor="taskDescription" className="mb-2 block text-sm font-semibold text-slate-300">
           Task details
         </label>
         <textarea
@@ -102,7 +102,7 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Describe what needs to be done, any deadline, and any documents or proof that matter."
           rows={5}
-          className="w-full resize-y rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
+          className="w-full resize-y rounded-2xl border border-white/20 px-4 py-3 text-white outline-none transition focus:border-primary focus:ring-4 focus:ring-green-100"
           required
         />
       </div>

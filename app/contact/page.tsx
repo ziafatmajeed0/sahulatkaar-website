@@ -72,8 +72,8 @@ export default function ContactPage() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-100 text-primary">
                     <Icon size={22} />
                   </div>
-                  <h2 className="mt-5 text-xl font-semibold text-slate-900">{card.title}</h2>
-                  <p className="mt-2 text-sm text-slate-600">{card.description}</p>
+                  <h2 className="mt-5 text-xl font-semibold text-white">{card.title}</h2>
+                  <p className="mt-2 text-sm text-slate-200">{card.description}</p>
                   <p className="mt-4 text-sm font-semibold text-primary">{card.label}</p>
                 </a>
               );
@@ -85,8 +85,8 @@ export default function ContactPage() {
       <section className="section-shell">
         <div className="container-custom grid gap-10 py-14 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="card-panel">
-            <h2 className="text-2xl font-semibold text-slate-900">Send your task details</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
+            <h2 className="text-2xl font-semibold text-white">Send your task details</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-200">
               Include the city, the task summary, and any useful documents or photos. The more context you provide, the easier it is to respond clearly.
             </p>
             <div className="mt-8">
@@ -99,8 +99,8 @@ export default function ContactPage() {
               <div className="flex items-start gap-4">
                 <Clock3 className="mt-1 text-primary" size={20} />
                 <div>
-                  <h2 className="text-lg font-semibold text-slate-900">Response rhythm</h2>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <h2 className="text-lg font-semibold text-white">Response rhythm</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-200">
                     Most new enquiries receive a response the same day, especially during regular working hours.
                   </p>
                 </div>
@@ -111,8 +111,8 @@ export default function ContactPage() {
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 text-primary" size={20} />
                 <div>
-                  <h2 className="text-lg font-semibold text-slate-900">Coverage</h2>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <h2 className="text-lg font-semibold text-white">Coverage</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-200">
                     Support is available across major Pakistani cities. If your area is not listed, message us to confirm.
                   </p>
                 </div>
@@ -120,8 +120,8 @@ export default function ContactPage() {
             </article>
 
             <article className="card-panel">
-              <h2 className="text-lg font-semibold text-slate-900">A good first message includes</h2>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
+              <h2 className="text-lg font-semibold text-white">A good first message includes</h2>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-200">
                 <li>The city and area where the task is needed</li>
                 <li>A short summary of the task</li>
                 <li>Any deadline or urgency</li>
@@ -141,8 +141,8 @@ export default function ContactPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {faqs.map((faq) => (
               <article key={faq.question} className="card-panel">
-                <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{faq.answer}</p>
+                <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-200">{faq.answer}</p>
               </article>
             ))}
           </div>

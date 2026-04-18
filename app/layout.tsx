@@ -65,6 +65,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+import ThreeBackground from '@/components/ThreeBackground';
+import ScrollColorWrapper from '@/components/ScrollColorWrapper';
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -73,14 +75,16 @@ export default function RootLayout({
   const structuredData = [getLocalBusinessSchema(), getServiceSchema()];
 
   return (
-    <html lang="en-PK" className="scroll-smooth">
-      <body className={`${notoSans.className} bg-slate-50 text-slate-900 antialiased`}>
+    <html lang="en-PK" className="scroll-smooth dark" suppressHydrationWarning data-scroll-behavior="smooth">
+      <body className={`${notoSans.className} bg-transparent text-slate-100 antialiased relative`} suppressHydrationWarning>
         <script
           type="application/ld+json"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <div className="flex min-h-screen flex-col">
+        <ThreeBackground />
+        <ScrollColorWrapper />
+        <div className="flex min-h-screen flex-col relative z-0">
           <Navigation />
           <main className="flex-1">{children}</main>
           <Footer />

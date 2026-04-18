@@ -77,8 +77,8 @@ export default function HowItWorksPage() {
                     </div>
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Step {index + 1}</p>
                   </div>
-                  <h2 className="mt-5 text-xl font-semibold text-slate-900">{step.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
+                  <h2 className="mt-5 text-xl font-semibold text-white">{step.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-200">{step.description}</p>
                 </article>
               );
             })}
@@ -96,7 +96,7 @@ export default function HowItWorksPage() {
             {timeline.map((item) => (
               <article key={item.time} className="card-panel">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{item.time}</p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.task}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-200">{item.task}</p>
               </article>
             ))}
           </div>
@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
             href={buildWhatsAppUrl('Assalam o Alaikum, I want to start a new task.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+            className="inline-flex items-center rounded-full bg-black/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             Message on WhatsApp
           </a>

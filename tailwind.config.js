@@ -8,22 +8,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#16a34a',
-        primaryDark: '#15803d',
-        secondary: '#f97316',
-        accent: '#1e3a8a',
-        background: '#ffffff',
-        dark: '#0f172a',
+        primary: '#22c55e', // Brighter green for dark mode contrast
+        primaryDark: '#16a34a',
+        secondary: '#fb923c', // Brighter orange for dark mode contrast
+        accent: '#3b82f6',
+        background: '#09090b', // Deep zinc/black background
+        dark: '#000000',
+        contentBase: '#18181b', // Surface color for cards
       },
 
       // 🔥 ADD THIS (IMPORTANT)
       animation: {
         marquee: 'marquee 20s linear infinite',
+        float: 'float 4s ease-in-out infinite',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
         },
       },
     },

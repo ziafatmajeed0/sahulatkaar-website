@@ -28,10 +28,10 @@ export default function ServicesPage() {
           <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
             {serviceCategories.map((service) => (
               <article key={service.title} className="card-panel h-full">
-                <h2 className="text-xl font-semibold text-slate-900">{service.title}</h2>
+                <h2 className="text-xl font-semibold text-white">{service.title}</h2>
                 <ul className="mt-5 space-y-3">
                   {service.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-600">
+                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-200">
                       <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-primary" />
                       <span>{item}</span>
                     </li>
@@ -53,7 +53,7 @@ export default function ServicesPage() {
             {serviceProcess.map((step, index) => (
               <article key={step} className="card-panel">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Step {index + 1}</p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{step}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-200">{step}</p>
               </article>
             ))}
           </div>
@@ -72,7 +72,7 @@ export default function ServicesPage() {
             href={buildWhatsAppUrl('Assalam o Alaikum, I want to check whether this task is supported: [share task details].')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+            className="inline-flex items-center gap-2 rounded-full bg-black/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             Ask about your task
             <ArrowRight size={18} />

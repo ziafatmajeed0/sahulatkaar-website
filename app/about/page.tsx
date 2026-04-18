@@ -25,14 +25,14 @@ export default function AboutPage() {
       <section className="section-shell">
         <div className="container-custom grid gap-8 py-14 lg:grid-cols-2">
           <article className="card-panel">
-            <h2 className="text-2xl font-semibold text-slate-900">What we are trying to solve</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <h2 className="text-2xl font-semibold text-white">What we are trying to solve</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-200">
               Families and overseas Pakistanis often need someone dependable to coordinate a local task, handle a follow-up, or keep everyone informed. The issue is not only access. It is clarity, responsiveness, and knowing who owns the next step.
             </p>
           </article>
           <article className="card-panel">
-            <h2 className="text-2xl font-semibold text-slate-900">How we work</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <h2 className="text-2xl font-semibold text-white">How we work</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-200">
               We keep the process straightforward: understand the request, confirm the scope, coordinate the task, and share progress updates through a single conversation channel.
             </p>
           </article>
@@ -48,8 +48,8 @@ export default function AboutPage() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {values.map((value) => (
               <article key={value.title} className="card-panel">
-                <h3 className="text-lg font-semibold text-slate-900">{value.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{value.description}</p>
+                <h3 className="text-lg font-semibold text-white">{value.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-200">{value.description}</p>
               </article>
             ))}
           </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             {milestones.map((milestone) => (
               <article key={milestone.year} className="card-panel">
                 <p className="text-3xl font-bold text-primary">{milestone.year}</p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{milestone.achievement}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-200">{milestone.achievement}</p>
               </article>
             ))}
           </div>
